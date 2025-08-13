@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Business Region Selector</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Business Region Selector</h1>
+      <p class="subtitle">Choose a continent, country, optional state/province, then city. Search available at each step.</p>
+    </header>
+
+    <main class="container">
+      <section class="panel" id="continent-panel">
+        <div class="panel-header">
+          <h2>1. Continent</h2>
+          <input type="text" id="continent-search" class="search-input" placeholder="Search continents" aria-label="Search continents" />
+        </div>
+        <ul id="continent-list" class="list" role="listbox" aria-label="Continents"></ul>
+      </section>
+
+      <section class="panel" id="country-panel">
+        <div class="panel-header">
+          <h2>2. Country</h2>
+          <input type="text" id="country-search" class="search-input" placeholder="Search countries" aria-label="Search countries" />
+        </div>
+        <ul id="country-list" class="list" role="listbox" aria-label="Countries"></ul>
+      </section>
+
+      <section class="panel" id="state-panel">
+        <div class="panel-header">
+          <h2>3. State / Province</h2>
+          <div class="panel-actions">
+            <label class="toggle">
+              <input type="checkbox" id="country-only-toggle" />
+              <span>Select country only</span>
+            </label>
+          </div>
+          <input type="text" id="state-search" class="search-input" placeholder="Search states/provinces" aria-label="Search states or provinces" />
+        </div>
+        <ul id="state-list" class="list" role="listbox" aria-label="States or provinces"></ul>
+      </section>
+
+      <section class="panel" id="city-panel">
+        <div class="panel-header">
+          <h2>4. City</h2>
+          <input type="text" id="city-search" class="search-input" placeholder="Search cities" aria-label="Search cities" />
+        </div>
+        <ul id="city-list" class="list" role="listbox" aria-label="Cities"></ul>
+      </section>
+    </main>
+
+    <aside class="summary">
+      <div class="selection-summary" id="selection-summary" aria-live="polite"></div>
+      <div class="summary-actions">
+        <button id="clear-selection" class="btn btn-secondary" type="button">Clear</button>
+        <button id="confirm-selection" class="btn btn-primary" type="button">Confirm Selection</button>
+      </div>
+      <pre id="selection-output" class="output" aria-label="Selection output"></pre>
+    </aside>
+
+    <footer class="footer">
+      <small>Tip: You can search within each column. Toggling "Select country only" skips state/city.</small>
+    </footer>
+
+    <script src="./world-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
